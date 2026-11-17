@@ -168,6 +168,9 @@ fun LockScreen(
                 remove("cooldownLevel")
             }
         } else {
+            // ---- ADDED LINE ----
+            nethical.locklock.utils.AttemptLogger.logFailedAttempt(context, lockedAppName = appInfo?.name ?: "Settings")
+            // ---------------------
             attempts++
             if(attempts>=5){
                 val cooldownLevel = cooldownSp.getInt("cooldownLevel",1)
